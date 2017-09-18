@@ -3,31 +3,30 @@ import getpass
 import time
 import random
 
+def delay(x):
+	time.sleep(x)
+
 guesses = int(1)
 
-print('Welcome to the guess your mates number game')
-print()
-time.sleep(1)
-print()
-print('select how many players')
-print('    1.) player - the computer will generate a number for you to guess between 0 and 100')
-print('    2.) player - your mate will choose a number for you to guess')
+print('Welcome to the guess your mates number game\n')
+delay(1)
+print('select how many players\n')
+print('    1.) player - the computer will generate a number for you to guess between 0 and 100\n')
+print('    2.) player - your mate will choose a number for you to guess\n')
 players = input('[1] or [2]?')
 
 if int(players) == 2:
 	theNumber = getpass.getpass('Please enter a number for your mate to guess (NOTE: your input will be hidden): ')
-	time.sleep(1)
-	print()
-	print('Alright now hand the keyboard over to your mate he will have to guess. see how many attempts it takes him to guess')
-else:
+	delay(1)
+	print('Alright now hand the keyboard over to your mate he will have to guess. see how many attempts it takes him to guess\n')
+elif int(players) == 1:
 	theNumber = str(random.randint(0,100))
-	time.sleep(0.5)
-	print('Okay now its time to guess the number')
+	delay(0.5)
+	print('Okay now its time to guess the number\n')
 
-time.sleep(1)
-print()
+delay(1)
 
-i=input('please enter a guess: ')
+i = input('please enter a guess\n')
 
 while int(i) != int(theNumber):
 
@@ -37,34 +36,26 @@ while int(i) != int(theNumber):
 		print()
 		print('Game will automatically close in 5 seconds')
 		time.sleep(5)
-		exit()	
+		exit(2)	
 
 		
-	print()
 	print ('#***********************************#')
-	print()
-	print('you chose: ' + i)
-	print()
+	print('you chose: ' + i\n)
 	if int(i) > int(theNumber):
 		print('try lower')
 	else:
 		print('try higher')
-	print()
 	guesses = guesses+1
-	print('enter another guess or type [quit] to give up')
-	print()
-	i = input('Please try again: ')
+	print('enter another guess or type [quit] to give up\n')
+	i = input('Please try again:\n')
 	
 	
 
-print ('#***********************************#')
-print('well done you win')
+print ('#***********************************#') #What is this? Also why did you put "print()" empty? is it like a new line? -ThePythonDoge
+print('well done you win'\n)
+print(str(i) + ' is right!!!'\n)
 print()
-print(str(i) + ' is right!!!')
-print()
-print('took ' + str(guesses) + ' guesses')
-print()
-print('Game will automatically close in 5 seconds')
-time.sleep(5)
-
-exit();
+print('took ' + str(guesses) + ' guesses'\n)
+print('Game will automatically close in 3 seconds'\n)
+delay(3)
+exit(2);
